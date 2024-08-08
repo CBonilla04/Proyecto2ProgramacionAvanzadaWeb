@@ -1,0 +1,40 @@
+﻿@model Proyecto2ProgramacionAvanzadaWeb.Models.Employees
+
+@if (@TempData["Success"] != null)
+{
+    <script src="/lib/jquery///dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.success('@TempData["Success"]');
+    </script>
+}
+
+<h1 class="text-center my-4">Historial de empleos</h1>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-controller="JobsHistory" asp-action="Add" class="btn btn-success">Nuevo</a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Empresa</th>
+                <th>Puesto</th>
+                <th>Fecha de inicio</th>
+                <th>Fecha de fin</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var job in Model?.JobsHisotory)
+            {
+                <tr>
+                    <td>@job.Empresa</td>
+                    <td>@job.Puesto</td>
+                    <td>@job.StartDate.ToString("dd/MM/yyyy")</td>
+                    <td>@job.EndtDate.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

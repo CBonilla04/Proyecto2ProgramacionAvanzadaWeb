@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Proyecto2ProgramacionAvanzadaWeb.Models.Turns
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Horario de Trabajo</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Turns" asp-action="SetSchedule" method="post">
+                        <div class="form-group">
+                            <label for="StartTime">Hora de Inicio</label>
+                            <input type="time" asp-for="StartTurn" class="form-control" id="StartTime" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="EndTime">Hora de Fin</label>
+                            <input type="time" asp-for="EndTurn" class="form-control" id="EndTime" required />
+                        </div>
+                        <button type="submit" class="btn btn-success mt-3">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

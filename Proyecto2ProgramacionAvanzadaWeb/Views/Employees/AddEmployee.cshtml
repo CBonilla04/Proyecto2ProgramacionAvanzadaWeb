@@ -1,0 +1,110 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //ViewBag.Title = "AddEmployee";
+
+}
+@model Proyecto2ProgramacionAvanzadaWeb.ViewModel.EmployeesView
+
+@if (@TempData["Error"] != null)
+{
+    <script src="/lib/jquery///dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script type="text/javascript">
+        toastr.error('@TempData["Error"]');
+    </script>
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="card shadow border-0" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); color: #000000;">
+                <div class="card-body">
+                    <h2>Agregar Empleado</h2>
+                    <form asp-controller="Employees" asp-action="AddEmployee" method="post">
+                        <div class="mb-3 mx-4">
+                            <label>Número empleado</span></label>
+                            <input placeholder="Se genera automaticamente" class="form-control" type="number" asp-for="EmployeeNumber" readonly />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Nombre <span style="color: red;">*</span></label>
+                            <input placeholder="Nombre de empleado" class="form-control" type="text" asp-for="FirstName" required />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Primer Apellido <span style="color: red;">*</span></label>
+                            <input placeholder="Primer apellido" class="form-control" type="text" asp-for="Surname" required />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Segundo Apellido <span style="color: red;">*</span></label>
+                            <input placeholder="Segundo apellido" class="form-control" type="text" asp-for="SecondSurname" required />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Estado <span style="color: red;">*</span></label>
+                            <select asp-for="State" class="form-control" id="State" name="State" required>
+                                <option value="">Seleccionar un estado</option>
+                                <option value="A">Activo</option>
+                                <option value="I">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Email <span style="color: red;">*</span></label>
+                            <input placeholder="Email" class="form-control" type="email" asp-for="Email" required />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Dirección</label>
+                            <input placeholder="Dirección de empleado" class="form-control" type="text" asp-for="Direction" />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Número telefonico <span style="color: red;">*</span></label>
+                            <input placeholder="Número telefonico" class="form-control" type="number" asp-for="PhoneNumber" required />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Fecha Nacimiento <span style="color: red;">*</span></label>
+                            <input placeholder="Fecha Nacimiento" class="form-control" type="date" asp-for="Birthdate" />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Fecha Contratación <span style="color: red;">*</span></label>
+                            <input placeholder="Fecha Contratación" class="form-control" type="date" asp-for="HiredDate" />
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label>Roles <span style="color: red;">*</span></label>
+                            <select asp-for="RoleId" class="form-control" id="RoleId" name="RoleId" required>
+                                <option value="">Seleccionar un Role</option>
+                                @foreach (var role in Model?.Roles)
+                                {
+                                    <option value="@role.RoleId">@role.RoleName</option>
+                                }
+                            </select>
+                        </div>
+
+
+                        <div class="mb-3 mx-4">
+                            <span style="color: red;">*</span> Campos obligatorios
+                        </div>
+
+                        <div class="mb-3 mx-4">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <a asp-controller="Employees" asp-action="Clear" class="btn btn-warning">Limpiar</a>
+                        </div>
+                        @if (ViewData["Message"] != null){
+                            @if (ViewData["Message"] != null && ViewData["Message"].ToString().Contains("Error"))
+                            {
+                                <div class="alert alert-danger" role="alert">
+                                    @ViewData["Message"]
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="alert alert-success" role="alert">
+                                    @ViewData["Message"]
+                                </div>
+                            }
+                        }
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

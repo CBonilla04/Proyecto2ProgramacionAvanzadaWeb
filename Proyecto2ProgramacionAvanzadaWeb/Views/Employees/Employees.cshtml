@@ -1,0 +1,66 @@
+﻿@model List<Proyecto2ProgramacionAvanzadaWeb.Models.Employees>
+
+@{
+    ViewData["Title"] = "Lista de Empleados";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+@if (@TempData["Success"] != null)
+{
+    <script src="/lib/jquery///dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script type="text/javascript">
+        toastr.success('@TempData["Success"]');
+    </script>
+}
+
+<h1 class="text-center my-4">Gestión de empleados</h1>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-controller="Employees" asp-action="AddEmployee" class="btn btn-success">Nuevo</a>
+    </div>
+
+    <table class="table table-hover table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Número de Empleado</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Segundo Apellido</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Fecha de Contratación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.EmployeeNumber</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.Surname</td>
+                    <td>@employee.SecondSurname</td>
+                    <td>@employee.Direction</td>
+                    <td>@employee.PhoneNumber</td>
+                    <td>@employee.Birthdate.ToShortDateString()</td>
+                    <td>@employee.HiredDate.ToShortDateString()</td>
+                    <td>
+                        <div class="btn-group ">
+                            <a asp-controller="Employees" asp-action="Update" asp-route-id="@employee.EmployeeNumber" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Editar
+                            </a>
+                            &nbsp; 
+                            <a asp-controller="Employees" asp-action="DeleteEmployee" asp-route-id="@employee.EmployeeNumber" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Eliminar
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,55 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<Proyecto2ProgramacionAvanzadaWeb.ViewModel.TurnsView>
+@if (@TempData["Success"] != null)
+{
+    <script src="/lib/jquery///dist/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script type="text/javascript">
+        toastr.success('@TempData["Success"]');
+    </script>
+}
+<h1 class="text-center my-4">Horario</h1>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center col-md-8 offset-md-2">
+        <a asp-controller="Turns" asp-action="SetSchedule" class="btn btn-success">Cambiar Horario</a>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Día de la Semana</th>
+                        <th>Hora de Inicio</th>
+                        <th>Hora de Fin</th>
+                        <th>Turno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var schedule in Model)
+                    {
+                        <tr>
+                            <td>@schedule.DayOfWeek</td>
+                            <td>@schedule.StartTime.ToString("hh:mm tt")</td>
+                            <td>@schedule.EndTime.ToString("hh:mm tt")</td>
+                            <td>@ViewData["TurnType"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    @if (ViewData["DaysWork"] != null)
+    {
+        <div class="col-md-8 offset-md-2" style="margin-top: 20px;">
+            <p>Jornada de @ViewData["DaysWork"] días</p>
+        </div>
+    }
+</div>
+

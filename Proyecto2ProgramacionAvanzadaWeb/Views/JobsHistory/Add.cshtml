@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Proyecto2ProgramacionAvanzadaWeb.Models.JobsHisotory
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <div class="card shadow border-0" style="border-radius: 10px; background-color: rgba(255, 255, 255, 0.9); color: #000000;">
+                <div class="card-body">
+                    <h2 style="text-align: center;">Agregar empleo</h2>
+
+                    <form asp-controller="JobsHistory" asp-action="Add" method="post">
+                        <div class="mb-3 mx-4">
+
+                            <label asp-for="Empresa" class="control-label">Empresa <span style="color: red;">*</span></label>
+                            <input asp-for="Empresa" class="form-control" required />
+                            <span asp-validation-for="Empresa" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label asp-for="Puesto" class="control-label">Puesto <span style="color: red;">*</span></label>
+                            <input asp-for="Puesto" class="form-control" required />
+                            <span asp-validation-for="Puesto" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label asp-for="StartDate" class="control-label">Fecha de Inicio <span style="color: red;">*</span></label>
+                            <input asp-for="StartDate" class="form-control" type="date" required />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <label asp-for="EndtDate" class="control-label">Fecha de Fin <span style="color: red;">*</span></label>
+                            <input asp-for="EndtDate" class="form-control" type="date" required />
+                            <span asp-validation-for="EndtDate" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <span style="color: red;">*</span> Campos obligatorios
+                        </div>
+                        <div class="mb-3 mx-4">
+                            <button type="submit" class="btn btn-primary">Agregar Empleo</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
