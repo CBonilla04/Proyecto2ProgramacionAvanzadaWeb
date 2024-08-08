@@ -2,16 +2,25 @@
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Proyecto2ProgramacionAvanzadaWeb.Models;
+<<<<<<< HEAD
 using System.Data;
 using System.Security;
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
 namespace Proyecto2ProgramacionAvanzadaWeb.Utils
 {
     public class AppDbContext : DbContext
     {
+<<<<<<< HEAD
         public DbSet<Employees> Employees { get; set; }
         public DbSet<Roles> Roles { get; set; }
         public DbSet<EmployeeRol> EmployeeRol { get; set; }
+=======
+        public DbSet<Employees> Empleados { get; set; }
+        public DbSet<Roles> Roles { get; set; }
+        public DbSet<EmployeeRol> EmpleadoRoles { get; set; }
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
         public DbSet<Permissions> Permissions { get; set; }
         public DbSet<RolPermissions> RolPermissions { get; set; }
         public DbSet<Evaluations> Evaluations { get; set; }
@@ -21,15 +30,19 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Utils
         public DbSet<Turns> Turns{ get; set; }
         public DbSet<Admins> Admins{ get; set; }
         public DbSet<Payrolls> Payrolls { get; set; }
+<<<<<<< HEAD
         public DbSet<JobsHisotory> JobsHisotory { get; set; }
         public DbSet<Bonuses> Bonuses { get; set; }
         public DbSet<EmployeeBonuses> EmployeeBonuses { get; set; }
 
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
+<<<<<<< HEAD
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
@@ -99,6 +112,9 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Utils
             }
 
         }
+=======
+
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
         public void InitializeDatabase()
         {
             try

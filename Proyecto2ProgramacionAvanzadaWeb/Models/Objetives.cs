@@ -16,7 +16,11 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
         [Required]
         public int ObjetiveWeight { get; set; }
 
+<<<<<<< HEAD
         public ICollection<EvaluationObjective>? EvaluationObjective { get; set; }
+=======
+        public ICollection<EvaluationObjective> EvaluationObjective { get; set; }
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
 
     }

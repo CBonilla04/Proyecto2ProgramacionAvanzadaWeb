@@ -15,7 +15,11 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
         [StringLength(500)]
         public string PermissionDescription { get; set; }
 
+<<<<<<< HEAD
         public ICollection<RolPermissions>? RolPermissions { get; set; }
+=======
+        public ICollection<RolPermissions> RolPermissions { get; set; }
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
     }
 }

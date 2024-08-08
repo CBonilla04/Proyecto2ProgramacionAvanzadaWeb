@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+<<<<<<< HEAD
 using Proyecto2ProgramacionAvanzadaWeb.IServices;
 using Proyecto2ProgramacionAvanzadaWeb.Services;
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 using Proyecto2ProgramacionAvanzadaWeb.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -32,6 +35,15 @@ builder.Services.AddScoped<IEmployeeBonusesService, EmployeeBonusesService>();
 
 var app = builder.Build();
 
+<<<<<<< HEAD
+=======
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+});
+
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 //inicaliza la base de datos
 using (var scope = app.Services.CreateScope())
 {
@@ -39,7 +51,10 @@ using (var scope = app.Services.CreateScope())
     dbContext.InitializeDatabase();
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

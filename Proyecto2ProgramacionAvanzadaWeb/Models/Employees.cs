@@ -1,11 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+<<<<<<< HEAD
 using Proyecto2ProgramacionAvanzadaWeb.ViewModel;
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
 namespace Proyecto2ProgramacionAvanzadaWeb.Models
 {
     public class Employees
     {
+<<<<<<< HEAD
         public Employees()
         {
             Payrolls = new List<Payrolls>();
@@ -14,6 +18,8 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
             EmployeeBonuses = new List<EmployeeBonuses>();
         }
 
+=======
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
         [Key]
         public int EmployeeNumber { get; set; }
 
@@ -54,6 +60,7 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
         [StringLength(1)]
         public string State { get; set; }
 
+<<<<<<< HEAD
         public Turns? Turns { get; set; }
 
         public List<Payrolls>? Payrolls { get; set; }
@@ -64,6 +71,14 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
         public List<EmployeeBonuses>? EmployeeBonuses { get; set; }
 
         
+=======
+        public Turns Turns { get; set; }
+
+        public Payrolls Payrolls { get; set; }
+
+        public ICollection<EmployeeRol> EmployeeRol { get; set; }
+
+>>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
     }
 }
