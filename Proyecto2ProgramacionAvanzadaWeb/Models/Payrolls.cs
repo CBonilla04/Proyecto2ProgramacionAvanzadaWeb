@@ -24,12 +24,7 @@ namespace Proyecto2ProgramacionAvanzadaWeb.Models
 
         [Required]
         public decimal NetSalary { get; set; }
-
-<<<<<<< HEAD
         public Employees? Employee { get; set; }
-=======
-        public Employees Employee { get; set; }
->>>>>>> 7e619a760a9991348b64feaa1be766d081e6e088
 
     }
 }
